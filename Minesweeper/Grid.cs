@@ -56,7 +56,7 @@ namespace Minesweeper
         {
             tiles[y, x].SetStateTo(state);
         }
-       
+
 
     }
 }

@@ -72,7 +72,7 @@ namespace Minesweeper
         {
             state = States.covered;
             number = 0;
-            hasBomb = (rnd.NextDouble() < CHANCE_OF_HAVING_BOMB);
+            hasBomb = rnd.NextDouble() < CHANCE_OF_HAVING_BOMB;
         }
 
         public void Display()
