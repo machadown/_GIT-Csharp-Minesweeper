@@ -4,7 +4,7 @@ namespace Minesweeper
 {
     class Grid
     {
-        private Tile[,] tiles;
+        public Tile[,] tiles;
         private int xLength;
         private int yLength;
 
@@ -22,6 +22,8 @@ namespace Minesweeper
                     tiles[y, x] = new Tile();
                 }
             }
+
+            SetupTilesNumbers();
         }
 
         public void Display()
@@ -57,6 +59,35 @@ namespace Minesweeper
             tiles[y, x].SetStateTo(state);
         }
 
+        //--------------------------------------------------------------------------private methods
+
+        private void SetupTilesNumbers()
+        {
+            for(int x = 0; x < xLength; x++)
+            {
+                for(int y = 0; y < yLength; y++)
+                {
+                    tiles[y, x].Number = GetNumberOfSurroundingBombs(y, x);
+                }
+            }
+        }
+
+        private int GetNumberOfSurroundingBombs(int y, int x)
+        {
+            int bombCount = 0;
+
+            //Remember to use a try-catch block alternative instead.
+            try { if (tiles[y + 1, x + 1].hasBomb) bombCount++; } catch (IndexOutOfRangeException) { }
+            try { if (tiles[y + 1, x].hasBomb) bombCount++; } catch (IndexOutOfRangeException) { }
+            try { if (tiles[y + 1, x - 1].hasBomb) bombCount++; } catch (IndexOutOfRangeException) { }
+            try { if (tiles[y, x + 1].hasBomb) bombCount++; } catch (IndexOutOfRangeException) { }
+            try { if (tiles[y, x - 1].hasBomb) bombCount++; } catch (IndexOutOfRangeException) { }
+            try { if (tiles[y - 1, x + 1].hasBomb) bombCount++; } catch (IndexOutOfRangeException) { }
+            try { if (tiles[y - 1, x].hasBomb) bombCount++; } catch (IndexOutOfRangeException) { }
+            try { if (tiles[y - 1, x - 1].hasBomb) bombCount++; } catch (IndexOutOfRangeException) { }
+
+            return bombCount;
+        }
 
     }
 }

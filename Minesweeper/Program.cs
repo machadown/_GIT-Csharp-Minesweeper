@@ -18,7 +18,7 @@ namespace Minesweeper
             {
                 for(int j = 0; j < 26; j++)
                 {
-                    if(r.NextDouble() < .5)
+                    if(r.NextDouble() < 2)
                     {
                         grid.SetTileState(i, j, Tile.States.uncovered);
                     }

@@ -28,22 +28,17 @@ namespace Minesweeper
         /// SetStateTo( ) argument.
         /// </summary>
         public enum States { covered, uncovered, flagged }
+        public readonly bool hasBomb;
 
         //PRIVATE:
 
         private int number;
-        private readonly bool hasBomb;
         private States state;
         private static readonly Random rnd = new Random();
 
-        private const double CHANCE_OF_HAVING_BOMB = .5;
+        private const double CHANCE_OF_HAVING_BOMB = .2;
 
         //-------------------------------------------------------------------------properties
-
-        /// <summary>
-        /// True if the Tile object has a hidden bomb.
-        /// </summary>
-        public bool HasBomb { get; }
 
         /// <summary>
         /// Number of bombs surrounding the tile.
@@ -91,7 +86,7 @@ namespace Minesweeper
                         DisplayWith(" ", ConsoleColor.Gray, ConsoleColor.Black, false);
                     
                     else
-                        DisplayWith(number.ToString(), ConsoleColor.White, ConsoleColor.Black, false);
+                        DisplayWith(number.ToString(), ConsoleColor.Gray, ConsoleColor.Black, false);
 
                     break;
 
@@ -100,7 +95,7 @@ namespace Minesweeper
                     break;
 
                 default:
-                    Console.WriteLine("Tile Error: Landed on Defaut case (not intended).");
+                    Console.WriteLine("Tile Error: Landed on Defaut case (not intended) in Tile.cs/Display().");
                     break;
             }
         }
