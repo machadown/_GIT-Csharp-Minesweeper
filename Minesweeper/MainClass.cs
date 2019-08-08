@@ -9,6 +9,8 @@ namespace Minesweeper
         private static readonly Translator translator = new Translator();
         private static int width;
         private static int height;
+        private static int[] playerInput;
+        private static bool isNotOver = true;
 
         static void Main()
         {
@@ -37,8 +39,7 @@ namespace Minesweeper
             }
             catch (FormatException)
             {
-                Console.WriteLine("INVALID INPUT!");
-                Thread.Sleep(1000);
+                ErrorMessage();
                 FirstPrompt();
             }
         }
@@ -52,11 +53,11 @@ namespace Minesweeper
 
         private static void MainLoop()
         {
-            while (true)
+            while (isNotOver)
             {
                 Display();
                 ClickPrompt();
-
+                Compute();
             }
         }
 
@@ -74,8 +75,65 @@ namespace Minesweeper
         private static void ClickPrompt()
         {
             Console.Write(">>> Select tile: ");
-            int[] coordenates = translator.GetNumbersFrom(Console.ReadLine());
+            try
+            {
+                playerInput = translator.GetNumbersFrom(Console.ReadLine());
+                if (playerInput.Length > 3 || playerInput.Length < 2) { ErrorMessage(); MainLoop(); }
+            }
+            catch (FormatException)
+            {
+                ErrorMessage();
+                MainLoop();
+            }
+        }
 
+        private static void Compute()
+        {
+            int x;
+            int y;
+            int state;
+
+            if (playerInput.Length == 3)
+            {
+                state = playerInput[0];
+                x = playerInput[1];
+                y = playerInput[2];
+            }
+            else
+            {
+                state = 0;
+                x = playerInput[0];
+                y = playerInput[1];
+            }
+
+            grid.SetTileState(x, y, ToState(state));
+
+            if (grid.Tiles[y, x].hasBomb) EndGame();
+        }
+
+        private static void ErrorMessage()
+        {
+            Console.WriteLine("INVALID INPUT!");
+            Thread.Sleep(1000);
+        }
+
+        private static Tile.States ToState(int state)
+        {
+            switch (state)
+            {
+                case 5: // F
+                    return Tile.States.flagged;
+                case 20: // U
+                    return Tile.States.covered;
+                default:
+                    return Tile.States.uncovered;
+            }
+        }
+
+        private static void EndGame()
+        {
+            isNotOver = false;
+            Console.WriteLine("GAME OVER");
         }
 
     }
