@@ -1,0 +1,22 @@
+C:\Users\Lucas Machado\Desktop\VS_Projects\Minesweeper\Minesweeper\bin\Debug\netcoreapp2.1\Minesweeper.deps.json
+C:\Users\Lucas Machado\Desktop\VS_Projects\Minesweeper\Minesweeper\bin\Debug\netcoreapp2.1\Minesweeper.runtimeconfig.json
+C:\Users\Lucas Machado\Desktop\VS_Projects\Minesweeper\Minesweeper\bin\Debug\netcoreapp2.1\Minesweeper.runtimeconfig.dev.json
+C:\Users\Lucas Machado\Desktop\VS_Projects\Minesweeper\Minesweeper\bin\Debug\netcoreapp2.1\Minesweeper.dll
+C:\Users\Lucas Machado\Desktop\VS_Projects\Minesweeper\Minesweeper\bin\Debug\netcoreapp2.1\Minesweeper.pdb
+C:\Users\Lucas Machado\Desktop\VS_Projects\Minesweeper\Minesweeper\obj\Debug\netcoreapp2.1\Minesweeper.csprojAssemblyReference.cache
+C:\Users\Lucas Machado\Desktop\VS_Projects\Minesweeper\Minesweeper\obj\Debug\netcoreapp2.1\Minesweeper.csproj.CoreCompileInputs.cache
+C:\Users\Lucas Machado\Desktop\VS_Projects\Minesweeper\Minesweeper\obj\Debug\netcoreapp2.1\Minesweeper.AssemblyInfoInputs.cache
+C:\Users\Lucas Machado\Desktop\VS_Projects\Minesweeper\Minesweeper\obj\Debug\netcoreapp2.1\Minesweeper.AssemblyInfo.cs
+C:\Users\Lucas Machado\Desktop\VS_Projects\Minesweeper\Minesweeper\obj\Debug\netcoreapp2.1\Minesweeper.dll
+C:\Users\Lucas Machado\Desktop\VS_Projects\Minesweeper\Minesweeper\obj\Debug\netcoreapp2.1\Minesweeper.pdb
+C:\_DATA\_PROJECTS\C#\Minesweeper\Minesweeper\obj\Debug\netcoreapp2.1\Minesweeper.csprojAssemblyReference.cache
+C:\_DATA\_PROJECTS\C#\Minesweeper\Minesweeper\obj\Debug\netcoreapp2.1\Minesweeper.csproj.CoreCompileInputs.cache
+C:\_DATA\_PROJECTS\C#\Minesweeper\Minesweeper\obj\Debug\netcoreapp2.1\Minesweeper.AssemblyInfoInputs.cache
+C:\_DATA\_PROJECTS\C#\Minesweeper\Minesweeper\obj\Debug\netcoreapp2.1\Minesweeper.AssemblyInfo.cs
+C:\_DATA\_PROJECTS\C#\Minesweeper\Minesweeper\obj\Debug\netcoreapp2.1\Minesweeper.dll
+C:\_DATA\_PROJECTS\C#\Minesweeper\Minesweeper\obj\Debug\netcoreapp2.1\Minesweeper.pdb
+C:\_DATA\_PROJECTS\C#\Minesweeper\Minesweeper\bin\Debug\netcoreapp2.1\Minesweeper.deps.json
+C:\_DATA\_PROJECTS\C#\Minesweeper\Minesweeper\bin\Debug\netcoreapp2.1\Minesweeper.runtimeconfig.json
+C:\_DATA\_PROJECTS\C#\Minesweeper\Minesweeper\bin\Debug\netcoreapp2.1\Minesweeper.runtimeconfig.dev.json
+C:\_DATA\_PROJECTS\C#\Minesweeper\Minesweeper\bin\Debug\netcoreapp2.1\Minesweeper.dll
+C:\_DATA\_PROJECTS\C#\Minesweeper\Minesweeper\bin\Debug\netcoreapp2.1\Minesweeper.pdb
