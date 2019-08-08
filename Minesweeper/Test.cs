@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Threading;
-
+/*
 namespace Minesweeper
 {
-    class Program
+    class Test
     {
-        static Random r = new Random();
+        static readonly Random r = new Random();
 
+
+        
         static void Main()
         {
             Grid grid = new Grid(26, 26);
@@ -35,3 +37,4 @@ namespace Minesweeper
 
     }
 }
+*/

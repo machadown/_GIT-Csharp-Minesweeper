@@ -91,7 +91,7 @@ namespace Minesweeper
                     break;
 
                 case States.flagged:
-                    DisplayWith("F", ConsoleColor.White, ConsoleColor.Black);
+                    DisplayWith("F", ConsoleColor.White, ConsoleColor.DarkRed);
                     break;
 
                 default:

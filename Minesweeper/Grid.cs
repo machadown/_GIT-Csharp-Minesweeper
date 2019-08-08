@@ -5,10 +5,10 @@ namespace Minesweeper
     class Grid
     {
         public Tile[,] tiles;
-        private int xLength;
-        private int yLength;
+        private readonly int xLength;
+        private readonly int yLength;
 
-        private const string OFFSET = "          ";
+        private const string OFFSET = "              ";
 
         public Grid(int xLength, int yLength)
         {
