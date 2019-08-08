@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\_DATA\\_PROJECTS\\C#\\temp\\Minesweeper\\Minesweeper.csproj": {}
+    "C:\\_DATA\\_PROJECTS\\C#\\_GIT-Csharp-Minesweeper\\Minesweeper\\Minesweeper.csproj": {}
   },
   "projects": {
-    "C:\\_DATA\\_PROJECTS\\C#\\temp\\Minesweeper\\Minesweeper.csproj": {
+    "C:\\_DATA\\_PROJECTS\\C#\\_GIT-Csharp-Minesweeper\\Minesweeper\\Minesweeper.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\_DATA\\_PROJECTS\\C#\\temp\\Minesweeper\\Minesweeper.csproj",
+        "projectUniqueName": "C:\\_DATA\\_PROJECTS\\C#\\_GIT-Csharp-Minesweeper\\Minesweeper\\Minesweeper.csproj",
         "projectName": "Minesweeper",
-        "projectPath": "C:\\_DATA\\_PROJECTS\\C#\\temp\\Minesweeper\\Minesweeper.csproj",
+        "projectPath": "C:\\_DATA\\_PROJECTS\\C#\\_GIT-Csharp-Minesweeper\\Minesweeper\\Minesweeper.csproj",
         "packagesPath": "C:\\Users\\Lucas Machado\\.nuget\\packages\\",
-        "outputPath": "C:\\_DATA\\_PROJECTS\\C#\\temp\\Minesweeper\\obj\\",
+        "outputPath": "C:\\_DATA\\_PROJECTS\\C#\\_GIT-Csharp-Minesweeper\\Minesweeper\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
