@@ -100,9 +100,11 @@ namespace Minesweeper
             }
         }
 
-        public void SetStateTo(States newState)
+        public bool SetStateTo(States newState)
         {
+            if(state == States.uncovered) return false;
             state = newState;
+            return true;
         }
 
 

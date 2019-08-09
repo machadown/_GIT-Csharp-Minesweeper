@@ -55,18 +55,32 @@ namespace Minesweeper
             }
         }
 
-        public void SetTileState(int x, int y, Tile.States state)
+        public bool SetTileState(int x, int y, Tile.States state)
         {
-            Tiles[y, x].SetStateTo(state);
+            return Tiles[y, x].SetStateTo(state);
         }
 
         //--------------------------------------------------------------------------private methods
 
+        public void SetOffMines()
+        {
+            for (int x = 0; x < xLength; x++)
+            {
+                for (int y = 0; y < yLength; y++)
+                {
+                    if (Tiles[y, x].hasBomb)
+                    {
+                        SetTileState(x, y, Tile.States.uncovered);
+                    }
+                }
+            }
+        }
+
         private void SetupTilesNumbers()
         {
-            for(int x = 0; x < xLength; x++)
+            for (int x = 0; x < xLength; x++)
             {
-                for(int y = 0; y < yLength; y++)
+                for (int y = 0; y < yLength; y++)
                 {
                     Tiles[y, x].Number = GetNumberOfSurroundingBombs(y, x);
                 }

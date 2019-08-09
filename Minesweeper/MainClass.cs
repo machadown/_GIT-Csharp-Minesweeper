@@ -64,7 +64,7 @@ namespace Minesweeper
         private static void Display()
         {
             Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("                                             ***** MINESWEEPER *****");
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("------------------------------------------------------------------------------------------------------------------------");
@@ -106,7 +106,11 @@ namespace Minesweeper
                 y = playerInput[1];
             }
 
-            grid.SetTileState(x, y, ToState(state));
+            if (!grid.SetTileState(x, y, ToState(state)))
+            {
+                ErrorMessage();
+                MainLoop();
+            }
 
             if (grid.Tiles[y, x].hasBomb) EndGame();
         }
@@ -133,6 +137,8 @@ namespace Minesweeper
         private static void EndGame()
         {
             isNotOver = false;
+            grid.SetOffMines();
+            Display();
             Console.WriteLine("GAME OVER");
         }
 
