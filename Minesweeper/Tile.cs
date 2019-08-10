@@ -17,6 +17,7 @@ namespace Minesweeper
              - Display tile (based on its state).
              - Get and Set int number.
              - Only Get bool hasBomb.
+             - Only Get States State.
 
         */
 
@@ -33,7 +34,6 @@ namespace Minesweeper
         //PRIVATE:
 
         private int number;
-        private States state;
         private static readonly Random rnd = new Random();
 
         private const double CHANCE_OF_HAVING_BOMB = .2;
@@ -45,10 +45,7 @@ namespace Minesweeper
         /// </summary>
         public int Number
         {
-            get
-            {
-                return number;
-            }
+            get => number;
             set
             {
                 if (value < 0) return;
@@ -56,6 +53,7 @@ namespace Minesweeper
             }
         }
 
+        public States State { get; private set; }
 
 
         //-------------------------------------------------------------------------public methods
@@ -65,14 +63,14 @@ namespace Minesweeper
         /// </summary>
         public Tile()
         {
-            state = States.covered;
+            State = States.covered;
             number = 0;
             hasBomb = rnd.NextDouble() < CHANCE_OF_HAVING_BOMB;
         }
 
         public void Display()
         {
-            switch (state)
+            switch (State)
             {
                 case States.covered:
                     DisplayWith(" ", ConsoleColor.White, ConsoleColor.Black);
@@ -102,8 +100,8 @@ namespace Minesweeper
 
         public bool SetStateTo(States newState)
         {
-            if(state == States.uncovered) return false;
-            state = newState;
+            if(State == States.uncovered) return false;
+            State = newState;
             return true;
         }
 

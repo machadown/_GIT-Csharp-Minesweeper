@@ -9,6 +9,8 @@ namespace Minesweeper
 
         private const string OFFSET = "              ";
 
+        bool[,] wereChecked;
+
         public Tile[,] Tiles { get; }
 
         public Grid(int xLength, int yLength)
@@ -23,6 +25,8 @@ namespace Minesweeper
                     Tiles[y, x] = new Tile();
                 }
             }
+
+            wereChecked = new bool[yLength, xLength];
 
             SetupTilesNumbers();
         }
@@ -57,12 +61,24 @@ namespace Minesweeper
 
         public bool SetTileState(int x, int y, Tile.States state)
         {
+            if(state == Tile.States.uncovered && Tiles[y, x].Number == 0 && !Tiles[y, x].hasBomb)
+            {
+                UncoverSurroudings(y, x);
+                return true;
+            }
+
+            if (Tiles[y, x].hasBomb)
+            {
+                SetOffMines();
+                return true;
+            } 
+
             return Tiles[y, x].SetStateTo(state);
         }
 
         //--------------------------------------------------------------------------private methods
 
-        public void SetOffMines()
+        private void SetOffMines()
         {
             for (int x = 0; x < xLength; x++)
             {
@@ -70,7 +86,7 @@ namespace Minesweeper
                 {
                     if (Tiles[y, x].hasBomb)
                     {
-                        SetTileState(x, y, Tile.States.uncovered);
+                        Tiles[y, x].SetStateTo(Tile.States.uncovered);
                     }
                 }
             }
@@ -102,6 +118,53 @@ namespace Minesweeper
             try { if (Tiles[y - 1, x - 1].hasBomb) bombCount++; } catch (IndexOutOfRangeException) { }
 
             return bombCount;
+        }
+
+        private void UncoverSurroudings(int y, int x)
+        {
+            Tiles[y, x].SetStateTo(Tile.States.uncovered);
+            wereChecked[y, x] = true;
+
+            UncoverThisDirection(1, 0, y, x);
+            UncoverThisDirection(0, 1, y, x);
+            UncoverThisDirection(-1, 0, y, x);
+            UncoverThisDirection(0, -1, y, x);
+            UncoverThisDirection(1, 1, y, x);
+            UncoverThisDirection(-1, -1, y, x);
+            UncoverThisDirection(-1, 1, y, x);
+            UncoverThisDirection(1, -1, y, x);
+
+            MoveThisMethodsPosition(1, 1, y, x);
+            MoveThisMethodsPosition(-1, 1, y, x);
+            MoveThisMethodsPosition(-1, -1, y, x);
+            MoveThisMethodsPosition(1, -1, y, x);
+            MoveThisMethodsPosition(1, 0, y, x);
+            MoveThisMethodsPosition(-1, 0, y, x);
+            MoveThisMethodsPosition(0, -1, y, x);
+            MoveThisMethodsPosition(0, 1, y, x);
+        }
+
+        private void UncoverThisDirection(int yDir, int xDir, int y, int x)
+        {
+            try
+            {
+                if (!Tiles[y + yDir, x + xDir].hasBomb)
+                    Tiles[y + yDir, x + xDir].SetStateTo(Tile.States.uncovered);
+            }
+            catch (IndexOutOfRangeException) { }
+        }
+
+        private void MoveThisMethodsPosition(int yDir, int xDir, int y, int x)
+        {
+            try
+            {
+                if (wereChecked[y + yDir, x + xDir] || Tiles[y + yDir, x + xDir].Number != 0) return;
+                if (!Tiles[y + yDir, x + xDir].hasBomb)
+                {
+                    UncoverSurroudings(y + yDir, x + xDir);
+                }
+            }
+            catch (IndexOutOfRangeException) { }
         }
 
     }

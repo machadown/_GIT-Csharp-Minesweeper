@@ -8,7 +8,7 @@ namespace Minesweeper
         public Translator() {}
 
         /// <summary>
-        /// Returns an array of integers that correspond to the position of letters in the alphabet starting at 0.
+        /// Returns an array of integers that correspond to the position in the alphabet of each input letter starting at 0.
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>

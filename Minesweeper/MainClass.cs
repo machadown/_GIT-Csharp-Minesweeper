@@ -137,10 +137,8 @@ namespace Minesweeper
         private static void EndGame()
         {
             isNotOver = false;
-            grid.SetOffMines();
             Display();
             Console.WriteLine("GAME OVER");
         }
-
     }
 }
